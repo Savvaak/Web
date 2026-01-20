@@ -1,0 +1,21 @@
+function createCities(arr) {
+    let mas = [];
+    let b = []
+    let good = {};
+    for(let i = 0; i < arr.length;i++){
+        let a = arr[i].split('||');
+        a[1] = a[1].toLowerCase();
+        b = a[1].split('');
+        b[0] = b[0].toUpperCase();
+        b = b.join('');
+        mas.push(b);
+    }
+    mas.forEach(item => {
+        let i = 0;
+        mas.forEach(item2 => {
+            if (item == item2) i++;
+        });
+        if (!(item in good)) good[[item]] = i;
+    });
+    return good;
+}
