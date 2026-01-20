@@ -1,0 +1,28 @@
+function createArrBonusStudents(arrStudents) {
+    let good = [];
+    for(let i=0; i < arrStudents.length; i++){
+        let newGood = {}
+        for(let key in arrStudents[i]) {
+            newGood[key] = arrStudents[i][key];
+        }
+        let str = arrStudents[i].rate;
+        if( str.indexOf('3') == -1 && str.indexOf('2') == -1){
+            if(str.indexOf('4') == -1){
+                newGood['bonus'] = 5;
+                good.push(newGood);
+            }
+            else{
+                newGood['bonus'] = 4;
+                good.push(newGood);
+            }
+        }
+    }
+    if(good.length == 0){
+        return 'Студентов для начисления бонусов нет';
+    }
+    else{return good;}
+}
+
+
+
+
