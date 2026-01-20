@@ -1,0 +1,27 @@
+function userCities(users) {
+    let good = {};
+    let goods = {};
+    for(let i = 0;i < users.length; i++){
+        let a = users[i].split(': ');
+        a[0] = a[0].charAt(0).toUpperCase() + a[0].slice(1).toLowerCase();
+        let b = a[1].split(', ');
+        for(let j = 0; j < b.length; j++){
+            b[j] = b[j].charAt(0).toUpperCase() + b[j].slice(1).toLowerCase();
+        }
+        let arr = b.filter((item, index) => b.indexOf(item) === index);
+        arr = arr.sort();
+        if(arr.length > 2){
+            good[a[0]] = arr;
+        }
+    }
+    let keys = Object.keys(good);
+    keys.sort();
+    for (let i in keys) {
+        goods[keys[i]] = good[keys[i]];
+    }
+    return goods;
+}
+
+
+
+
