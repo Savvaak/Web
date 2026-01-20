@@ -1,0 +1,21 @@
+function citiesStat(arrPeople) {
+    let result = {};
+
+  for (let line of arrPeople) {
+    let parts = line.split('|');
+    let city = parts[2].charAt(0).toUpperCase() + parts[2].slice(1).toLowerCase();
+    let year = parts[1]; 
+
+    if (!result[city]) {
+      result[city] = {};
+    }
+
+    result[city][year] = (result[city][year] || 0) + 1;
+  }
+
+  return result;
+}
+
+
+
+
