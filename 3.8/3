@@ -1,0 +1,37 @@
+function receiptGoods(newGood, arrGoods) {
+    let a = '';
+    let b = [];
+    let c = [];
+    let hel = 0;
+    let good = {};
+    let mas = newGood.split(' ');
+    mas[0] = mas[0].toLowerCase();
+    b = mas[0].split('');
+    b[0] = b[0].toUpperCase();
+    b = b.join('');
+    mas[0] = b;
+    for(let i = 0; i < arrGoods.length; i++){
+        a = arrGoods[i];
+        a.name = a.name.toLowerCase();
+        c = a.name.split('');
+        c[0] = c[0].toUpperCase();
+        c = c.join('');
+        a.name = c;
+        if(a.name === b && a.price == mas[2]){
+            hel += 1;
+            a.quantity = +a.quantity + +mas[1];
+        }
+    }
+    if(hel == 1){
+        return arrGoods;
+    }
+    good.name = mas[0];
+    good.quantity = +mas[1];
+    good.price = +mas[2];
+    arrGoods.push(good);
+    return arrGoods;
+}
+
+
+
+
