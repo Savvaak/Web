@@ -1,0 +1,31 @@
+let item = (str) => {
+    let good = {
+        
+    };
+    let arr = str.split(' ');
+    str = arr.join('');
+    str = str.split('<tr>');
+    let a = str[1].split('</tr>');
+    let b = str[2].split('</tr>');
+    b = b[0].split('<td>');
+    a = a[0].split('<th>');
+    let d = [];
+    let c = [];
+    let g = [];
+    let f = [];
+    for(let i = 1; i < a.length; i++){
+        d = a[i].split('</th>');
+        c = b[i].split('</td>');
+        g.push(d[0]);
+        f.push(c[0]);
+    }
+    for (let i = 0; i < g.length; i++) {
+        good[g[i]] = f[i];
+    }
+
+    return good;
+}
+
+
+
+
