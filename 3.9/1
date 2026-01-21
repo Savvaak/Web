@@ -1,0 +1,14 @@
+function getParent(idElement) {
+    let element = document.getElementById(idElement);
+    let count = 0;
+    while(element.parentElement != null){
+        count += 1;
+        element = element.parentElement;
+        alert(element);
+    }
+    return count;
+}
+
+
+
+
