@@ -1,0 +1,7 @@
+function setClass(idElement) {
+    let element = document.getElementById(idElement);
+    let links = element.getElementsByTagName('a');
+    for (let i = 0; i < links.length; i++) {
+        links[i].className += 'active';
+    }
+}
