@@ -1,0 +1,31 @@
+function printStatInfo(idElement) {
+    let element = document.getElementById(idElement);
+    alert('Родитель: ' + element.parentElement.nodeName);
+    if(element.nextElementSibling == null && element.previousElementSibling == null){
+        alert('Соседи: слева - нет, справа - нет');
+    }
+    else if(element.nextElementSibling == null){
+        alert('Соседи: слева - ' + element.previousElementSibling.nodeName + ', справа - нет');
+    }
+    else if(element.previousElementSibling == null){
+        alert('Соседи: слева - нет' + ', справа - ' + element.nextElementSibling.nodeName);
+    }
+    else{
+        alert('Соседи: слева - ' + element.previousElementSibling.nodeName + ', справа - ' + element.nextElementSibling.nodeName);
+    }
+    let count = 0;
+    for(let i in element.children){
+        count += 1;
+    }
+    if(count == 0){
+        alert('Количество детей: 0');
+    }
+    else{
+        alert('Количество детей: ' + count);
+        alert('Дети: первый - '+ element.firstElementChild.nodeName + ', последний - '+element.lastElementChild.nodeName);   
+    }
+}
+
+
+
+
