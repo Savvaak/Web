@@ -1,0 +1,22 @@
+function getLeftTop(eventX, eventY, rect, size) {
+    let left = eventX;
+    let top = eventY;
+        
+    if (left <= rect.left) {
+        left = rect.left + 1;
+    }
+    
+    if (left + size >= rect.right) {
+        left = rect.right - size - 1;
+    }
+    
+    if (top <= rect.top) {
+        top = rect.top + 1;
+    }
+
+    if (top + size >= rect.bottom) {
+        top = rect.bottom - size - 1;
+    }
+    
+    return [left, top];
+}
