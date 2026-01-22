@@ -1,0 +1,14 @@
+function setClass(attrName, clName) {
+    let element = document.getElementsByTagName('*');
+    for(let i = 0; i < element.length; i++){
+        let el = element[i];
+        if(el.hasAttribute(attrName)){
+           el.removeAttribute(attrName);
+           el.classList.add(clName);
+        }
+    }
+}
+
+
+
+
