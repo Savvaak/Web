@@ -1,0 +1,25 @@
+function validate(username, experience, level) {
+      let result = '';
+      if (username === '') {
+        result = 'Введите имя';
+        return result;
+      }
+      if (experience === '') {
+        result = 'Введите опыт работы';
+        return result;
+      }
+      if (experience < 0 || experience > 99) {
+        result = 'Вы ввели неверное значение опыта работы';
+        return result;
+      }
+      let str = '';
+      if (experience % 10 === 1 && experience % 100 !== 11) {
+          str = 'год';
+      } else if (experience % 10 >= 2 && experience % 10 <= 4 && (experience % 100 < 10 || experience % 100 >= 20)) {
+          str = 'года';
+      } else {
+          str = 'лет';
+      }
+      result = ${username}, нас устраивает Ваш опыт работы (${experience} ${str}) и уровень квалификации (${level}). Приходите на собеседование.;
+     return result;
+}
