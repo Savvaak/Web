@@ -1,0 +1,66 @@
+function toShortDate(date) {
+  return `${date.getDate()}.${date.getMonth()+ 1}.${date.getFullYear()}`;
+}
+
+function validate(username, birthday, experience, level) {
+    let result = '';
+    
+    if (username.trim() === '') {
+        return 'Введите имя';
+    }
+    
+    if (birthday === '') {
+        return 'Введите дату рождения';
+    }
+    
+    let birthDate = new Date(birthday);
+    let today = new Date(2023, 2, 4);
+    
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    
+    if (age < 18) {
+        return 'Приходите к нам через пару лет';
+    }
+    
+    if (experience === '') {
+        return 'Введите опыт работы';
+    }
+    
+    let expNum = parseInt(experience);
+    if (isNaN(expNum) || expNum < 0 || expNum > 99) {
+        return 'Вы ввели неверное значение опыта работы';
+    }
+    
+    let str = '';
+    if (expNum % 10 === 1 && expNum % 100 !== 11) {
+        str = 'год';
+    } else if (expNum % 10 >= 2 && expNum % 10 <= 4 && 
+               (expNum % 100 < 10 || expNum % 100 >= 20)) {
+        str = 'года';
+    } else {
+        str = 'лет';
+    }
+    
+    let birthDayOfWeek = birthDate.getDay();
+    
+    if (birthDayOfWeek === 0) {
+        birthDayOfWeek = 1;
+    }
+    
+    let interviewDate = null;
+    for (let day = 20; day <= 25; day++) {
+        let date = new Date(2023, 2, day);
+        if (date.getDay() === birthDayOfWeek) {
+            interviewDate = date;
+            break;
+        }
+    }
+    
+    result = `${username}, нас устраивает Ваш опыт работы (${expNum} ${str}) и уровень квалификации (${level}). Приходите на собеседование ${toShortDate(interviewDate)}.`;
+    
+    return result;
+}
