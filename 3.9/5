@@ -1,0 +1,39 @@
+function setNewProperty(tag) {
+    let element = document.getElementsByTagName(tag);
+    let l = '';
+    for(let i of element){
+        i.getInfo = function(){
+            let result = 'Родитель: '
+            let el = this.parentElement.nodeName;
+            result = result + el +'\n';
+            if(this.nextElementSibling == null && this.previousElementSibling == null){
+                result = result + 'Соседи: слева - нет, справа - нет' + '\n';
+            }
+            else if(this.nextElementSibling == null){
+                result = result + 'Соседи: слева - ' + this.previousElementSibling.nodeName + ', справа - нет' + '\n';
+            }
+            else if(this.previousElementSibling == null){
+                result = result + 'Соседи: слева - нет, справа - ' + this.nextElementSibling.nodeName + '\n';
+            }
+            else{
+                result = result + 'Соседи: слева - ' + this.previousElementSibling.nodeName + ', справа - ' + this.nextElementSibling.nodeName + '\n';
+    }
+            let count = 0;
+            for(let i in this.children){
+                count += 1;
+            }
+            if(count == 0){
+                result = result + 'Количество детей: 0';
+            }
+            else{
+                result = result + 'Количество детей: ' + count + '\n';
+                result = result + 'Дети: первый - '+ this.firstElementChild.nodeName + ', последний - '+this.lastElementChild.nodeName;   
+    }
+            return result;
+        }
+    }
+}
+
+
+
+
