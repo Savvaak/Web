@@ -1,0 +1,11 @@
+function changeAttribute(dictHref) {
+    let element = document.getElementsByTagName('a');
+    for (let key in dictHref) {
+        for (let el of element) {
+            let cleanText = el.textContent.trim().replace(/[.;]+$/, '');
+            if (cleanText.indexOf(key) != -1) {
+                el.setAttribute('href', dictHref[key]);
+            }
+        }
+    }
+}
