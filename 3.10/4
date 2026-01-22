@@ -20,6 +20,6 @@ function validate(username, experience, level) {
       } else {
           str = 'лет';
       }
-      result = ${username}, нас устраивает Ваш опыт работы (${experience} ${str}) и уровень квалификации (${level}). Приходите на собеседование.;
+      result = `${username}, нас устраивает Ваш опыт работы (${experience} ${str}) и уровень квалификации (${level}). Приходите на собеседование.`;
      return result;
 }
