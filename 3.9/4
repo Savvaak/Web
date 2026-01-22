@@ -1,0 +1,14 @@
+function hideElements(idElement) {
+    let element = document.getElementById(idElement);
+    let a = element.nodeName.toLowerCase(); 
+    let el = document.getElementsByTagName(a);
+    for(let i = 0; i < el.length;i++){
+        let next = el[i].nextElementSibling;
+        if(next){
+            next.hidden = true;
+        }
+    }
+    if(element.children.length == 0){
+        element.innerHTML = '&#128504;' + element.innerHTML;
+    }    
+}
