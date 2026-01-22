@@ -1,0 +1,20 @@
+let elementsP = document.getElementsByTagName('p');
+
+for (let i in elementsP) {
+   elementsP[i].onclick = function() {
+       let text = this.innerHTML;
+       let parts = text.split(' &hellip;');
+       let nums = parts[0].trim().split(' ').map(Number);
+       
+       let d = nums[nums.length - 1] - nums[nums.length - 2];
+       
+       let lastNum = nums[nums.length - 1];
+       
+       let newNums = [];
+       for (let j = 1; j <= 4; j++) {
+           newNums.push(lastNum + j * d);
+       }
+       
+       this.innerHTML = nums.concat(newNums).join(' ') + ' &hellip;';
+   };
+}
